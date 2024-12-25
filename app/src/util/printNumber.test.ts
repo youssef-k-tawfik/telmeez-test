@@ -4,6 +4,7 @@ describe('printNumber', () => {
   it('should return the input if it is a number', () => {
     expect(printNumber(5)).toBe(5);
     expect(printNumber(0)).toBe(0);
+    expect(printNumber("10")).toBe(1);
     expect(printNumber(-10)).toBe(-10);
   });
 
