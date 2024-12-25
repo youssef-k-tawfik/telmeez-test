@@ -30,7 +30,7 @@ jobs:
 
       - name: Create .env file
         run: |
-          echo ${{secrets.ENV_VARS}} > .env
+          echo "${{secrets.ENV_VARS}}" > .env
 
       - name: Set env vars
         run: export $(cat .env | xargs)
