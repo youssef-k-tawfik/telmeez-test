@@ -24,18 +24,19 @@ jobs:
           node-version: "22.x"
           cache: "npm"
           cache-dependency-path: app/package-lock.json
-      
+
       - name: Install dependencies
         run: npm ci
 
       - name: Create .env file
-        run: echo ${{secrets.ENV_VARS}} > .env
-        
+        run: |
+          echo ${{secrets.ENV_VARS}} > .env
+
       - name: Set env vars
         run: export $(cat .env | xargs)
-        
+
       - name: Build files (if applicable)
         run: npm run build --if-present
-        
+
       - name: Run tests
         run: npm test
